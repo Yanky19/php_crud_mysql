@@ -1,17 +1,15 @@
 <?php
-include("db.php");
+include("bdparcial.php");
 
 if (isset($_POST['Guardar'])){
-    //Cantidad
-    $title = $_POST['title'];
-    //descripcion
-    $description = $_POST['description'];
-    $Precio = $_POST['Precio'];
-    $Total = $_POST['Total'];
+   // $Codigo = $_POST['Codigo'];
+    $Nombre = $_POST['Nombre'];
+    $Direccion = $_POST['Direccion'];
+    $Municipio = $_POST['Municipio'];
     //echo $title; 
     //echo $description;
 
-    $query = "INSERT INTO productos (Cantidad, Descripcion, Precio, Total) VALUES ('$title', '$description','$Precio','$Total')";
+    $query = "INSERT INTO tbEstablecimientos (Nombre, Direccion, Municipio) VALUES ('$Nombre','$Direccion','$Municipio')";
     $result= mysqli_query($conn, $query);
     if (!$result){
         die("Error");

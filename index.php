@@ -15,23 +15,34 @@
         </button>
       </div>
       <?php session_unset(); } ?>
+      
 
 <!-- formulario -->
+      <section class="contenedor-sobre-nosotros" id="nosotros">
+            <h2 class="titulo"> Informate </h2>
+            <div class="contenedor-sobre-nosotros">
+             <!-- <img src="" alt="Img/descarga.png"> -->
+                <div class="contenido-textos">
+                    <h3><span></span>Vacunación COVID-19</h3>   
+                    <p>La mejor solución ante el covid, es la vacunación y seguir las medidas de prevención</p> 
+                </div>
+            </div>
+            </section>
 
-<div class="card card-body">
+<div class="card card-body" id="establecimiento">
 <form action="save_task.php" method="POST">
-<div class ="form.group">
-    <input type="text" name="title" class="form-control" placeholder="Cantidad" autofocus>
-</div>
+<!-- <div class ="form.group">
+    <input type="text" name="Codigo" class="form-control" placeholder="Codigo" autofocus>
+</div> -->
 
 <div class ="form.group">
-    <input type="text" name="description" class="form-control" placeholder="Descripcion del producto" autofocus>
+    <input type="text" name="Nombre" class="form-control" placeholder="Nombre" autofocus>
 </div>
 <div class ="form.group">
-    <input type="text" name="Precio" class="form-control" placeholder="Precio" autofocus>
+    <input type="text" name="Direccion" class="form-control" placeholder="Direccion" autofocus>
 </div>
 <div class ="form.group">
-    <input type="text" name="Total" class="form-control" placeholder="Total" autofocus>
+    <input type="text" name="Municipio" class="form-control" placeholder="Municipio" autofocus>
 </div>
 <!-- <div class ="form.group">
     <textarea name="description" rows="2" class="form-control" placeholder="Descripcion"></textarea>
@@ -47,24 +58,24 @@
 <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Cantidad</th>
+           <!-- <th>Codigo</th> -->
+            <th>Nombre</th>
             <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Total</th>
+            <th>Municipio</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
         <?php
-          $query = "SELECT * FROM productos";
+          $query = "SELECT * FROM tbEstablecimiento";
           $result_tasks = mysqli_query($conn, $query);    
 
           while($row = mysqli_fetch_array($result_tasks)) { ?>
           <tr>
-            <td><?php echo $row['Cantidad']; ?></td>
-            <td><?php echo $row['Descripcion']; ?></td>
-            <td><?php echo $row['Precio']; ?></td>
-            <td><?php echo $row['Total'];?></td>
+           <!-- <td><?php echo $row['Codigo']; ?></td> -->
+            <td><?php echo $row['Nombre']; ?></td>
+            <td><?php echo $row['Direccion']; ?></td>
+            <td><?php echo $row['Municipio'];?></td>
             <td>
             <a href="edit.php?Id=<?php echo $row['Id']?>" class="btn btn-secondary">
                 <i class="fas fa-marker"></i>
@@ -84,7 +95,7 @@
 
 
 
-
+       
 <?php include("includes/footer.php") ?>
 
         

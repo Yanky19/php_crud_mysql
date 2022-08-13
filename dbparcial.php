@@ -6,7 +6,7 @@ $conn = mysqli_connect(
     'localhost',
     'root',
     '',
-    'php_crud_mysql'
+    'bdparcial'
 );
 
 if (isset($conn)){

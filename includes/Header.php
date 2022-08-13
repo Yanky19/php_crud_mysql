@@ -18,6 +18,8 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href ="index.php"> Ingreso de Productos</a>
+        <a class="navbar-brand" href ="index.php"> Vacunacion </a>
+        <a class="navbar-brand" href ="#establecimiento"> Establecimientos </a>
+        <a class="navbar-brand" href ="#Vacunas"> Vacunas </a>
 </div>
 </nav>

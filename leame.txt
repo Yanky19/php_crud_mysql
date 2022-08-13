@@ -1,0 +1,2 @@
+se crearon tablas, una para ingresar la información de establecimientos, la información de personas 
+y 3 tablas para ingresar la información de las vacunas, esto con la finalidad de que los datos sean optimos. 

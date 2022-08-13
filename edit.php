@@ -1,31 +1,31 @@
 <?php
-include("db.php");
-$title = '';
-$description= '';
-$Precio= '';
-$Total= '';
+include("bdparcial.php");
+$Codigo = '';
+$Nombre= '';
+$Descripcion= '';
+$Municipio= '';
 
-if  (isset($_GET['Id'])) {
-  $Id = $_GET['Id'];
-  $query = "SELECT * FROM productos WHERE Id=$Id";
+if  (isset($_GET['Codigo'])) {
+  $Codigo = $_GET['Codigo'];
+  $query = "SELECT * FROM tbEstablecimiento WHERE Codigo=$Codigo";
   $result = mysqli_query($conn, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $title = $row['Cantidad'];
-    $description = $row['Descripcion'];
-    $Precio = $row['Precio'];
-    $Total = $row['Total'];
+    $Codigo = $row['Codigo'];
+    $Nombre = $row['Nombre'];
+    $Descripcion = $row['Descripcion'];
+    $Municipio = $row['Municipio'];
   }
 }
 
 if (isset($_POST['update'])) {
-  $Id = $_GET['Id'];
-  $title= $_POST['Cantidad'];
-  $description = $_POST['Descripcion'];
-  $Precio = $_POST['Precio'];
-  $Total = $_POST['Total'];
+  $Codigo = $_GET['Codigo'];
+  $Nombre= $_POST['Nombre'];
+  $descripcion = $_POST['Descripcion'];
+  $Municipio = $_POST['Municipio'];
+ 
 
-  $query = "UPDATE productos set Cantidad = '$title', descripcion = '$description', Precio='$Precio', Total='$Total' WHERE Id=$Id";
+  $query = "UPDATE tbEstablecimiento set Codigo = '$Codigo', Nombre = '$Nombre', Descripcion='$Descripcion', Municipio='$Municipio' WHERE Codigo=$Codigo";
   mysqli_query($conn, $query);
   $_SESSION['message'] = 'Actualizado';
   $_SESSION['message_type'] = 'warning';
@@ -40,16 +40,16 @@ if (isset($_POST['update'])) {
       <div class="card card-body">
       <form action="edit.php?Id=<?php echo $_GET['Id']; ?>" method="POST">
         <div class="form-group">
-          <input name="Cantidad" type="text" class="form-control" value="<?php echo $title; ?>" placeholder="Actualizar cantidad">
+          <input name="Codigo" type="text" class="form-control" value="<?php echo $Codigo; ?>" placeholder="Actualizar cantidad">
         </div>
         <!-- <div class="form-group"> -->
-        <!-- <textarea name="description" class="form-control" cols="30" rows="10"><?php echo $description;?></textarea> -->
+        <!-- <textarea name="Nombre" class="form-control" cols="30" rows="10"><?php echo $Nombre;?></textarea> -->
        <!-- </div> -->
         <div class="form-group">
-          <input name="Descripcion" type="text" class="form-control" value="<?php echo $description; ?>" placeholder="Actualizar Descripcion">
+          <input name="Descripcion" type="text" class="form-control" value="<?php echo $descripcion; ?>" placeholder="Actualizar Descripcion">
         </div>
         <div class="form-group">
-          <input name="Precio" type="text" class="form-control" value="<?php echo $Precio; ?>" placeholder="Actualizar Precio">
+          <input name="Municipio" type="text" class="form-control" value="<?php echo $Municipio; ?>" placeholder="Actualizar Precio">
         </div>
         <div class="form-group">
           <input name="Total" type="text" class="form-control" value="<?php echo $Total; ?>" placeholder="Actualizar Total">
